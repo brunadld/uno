@@ -31,6 +31,7 @@ public final class Game {
         setCurrentPlayer(player);
 
         while(!gameOver) {
+            updateDeck();
             if(currentPlayer.equals(mainPlayer)) {
                 chooseCard();
             }
@@ -215,6 +216,10 @@ public final class Game {
         System.out.println("\n"+currentPlayer.getName().toUpperCase()+" plays "+printCard(c).toUpperCase()+".");
         System.out.println(currentPlayer.getName().toUpperCase()+" has "+cardsLeft(p.getHands().indexOf(currentPlayer))+" cards left.");
         gameOver = isGameOver();
+    }
+
+    public void updateDeck() {
+        p.refreshDeck(topCard);
     }
 
 
