@@ -89,7 +89,7 @@ public final class Game {
         int n = p.getHands().indexOf(currentPlayer);
 
         if(p.getHands().get(n).getHand().isEmpty()) {
-            System.out.println(currentPlayer.getName().toUpperCase()+" wins!");
+            System.out.println("\n"+currentPlayer.getName().toUpperCase()+" wins!");
             return true;
         }
 
@@ -99,10 +99,8 @@ public final class Game {
     public boolean isCardValid(ArrayList<Integer> n, int x) {
         Card c = p.selectHand(activePlayer).get(n.get(x-1));
 
-        if(c.getColor() == null || c.getColor().isEmpty()) {
-            if(c.getValue().equals("draw four") || c.getValue().equals("choose color")) {
-                return true;
-            }
+        if(c.getValue().equals("draw four") || c.getValue().equals("choose color")) {
+            return true;
         }
         else if(!(c.getColor().equals(topCard.getColor())) && !(c.getValue().equals(topCard.getValue()))) {
             System.out.println("Please select the same color or value as the top card.");
@@ -115,7 +113,7 @@ public final class Game {
     // ------ MAIN GAME FUNCTIONS ------ //
 
     public void chooseCard() {
-        System.out.println("The top card is: "+topCard.getColor().toUpperCase()+" "+topCard.getValue().toUpperCase()+".\n");
+        System.out.println("\nThe top card is: "+topCard.getColor().toUpperCase()+" "+topCard.getValue().toUpperCase()+".\n");
         ArrayList<Integer> n = p.getPlayer(1);
 
         for(int i = 1; i <= n.size(); i++) {
@@ -137,7 +135,7 @@ public final class Game {
 
         if(x == n.size()+1) {
             p.buyCard(1);
-            System.out.println(currentPlayer.getName().toUpperCase()+" buys a card");
+            System.out.println("\n"+currentPlayer.getName().toUpperCase()+" buys a card.");
         }
         else if((x < 1) || (x > n.size()+1)) {
             System.out.print("\nPlease, select a number from 1-"+(n.size()+1)+".\n");
@@ -174,7 +172,7 @@ public final class Game {
 
         if(validCards.isEmpty()) {
             p.buyCard(player);
-            System.out.println(currentPlayer.getName().toUpperCase()+" buys a card");
+            System.out.println("\n"+currentPlayer.getName().toUpperCase()+" buys a card.");
         }
         else {
             ArrayList<Integer> validKeys = new ArrayList<>(validCards.keySet());
@@ -214,8 +212,8 @@ public final class Game {
             }
         }
 
-        System.out.println(currentPlayer.getName().toUpperCase()+" plays "+printCard(c).toUpperCase()+".");
-        System.out.println(currentPlayer.getName().toUpperCase()+" has "+cardsLeft(p.getHands().indexOf(currentPlayer))+" cards left.\n");
+        System.out.println("\n"+currentPlayer.getName().toUpperCase()+" plays "+printCard(c).toUpperCase()+".");
+        System.out.println(currentPlayer.getName().toUpperCase()+" has "+cardsLeft(p.getHands().indexOf(currentPlayer))+" cards left.");
         gameOver = isGameOver();
     }
 
@@ -223,7 +221,7 @@ public final class Game {
     // ------ WILD CARD FUNCTIONS ------ //
 
     public void blockPlayer() {
-        System.out.println(currentPlayer.getName().toUpperCase()+" blocks "+nextPlayer.getName().toUpperCase());
+        System.out.println("\n"+currentPlayer.getName().toUpperCase()+" blocks "+nextPlayer.getName().toUpperCase()+".");
         setNextPlayer(p.getHands().indexOf(nextPlayer));
     }
 
@@ -272,7 +270,7 @@ public final class Game {
     public void reverse() {
         reverseGame = !reverseGame;
         setNextPlayer(p.getHands().indexOf(currentPlayer));
-        System.out.println("Game reversed!\n");
+        System.out.println("\nGame reversed!");
     }
 
 
