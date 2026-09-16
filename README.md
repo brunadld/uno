@@ -7,3 +7,4 @@ Planned implementations for version 2:
 1. Deck renewal in case the game runs out of cards.
 2. "UNO!" call.
 3. Card stacking.
+4. Time limit for player to pick a card/option, otherwise a card will be automatically be bought. (Unsure if I'll take this one forward)
