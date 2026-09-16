@@ -5,6 +5,5 @@ Known issues:
 
 Planned implementations for version 2:
 1. Deck renewal in case the game runs out of cards.
-2. Make sure that, upon picking Choose Color or Draw Four, the bot only chooses a color that it has on hand.
-3. "UNO!" call.
-4. Card stacking.
+2. "UNO!" call.
+3. Card stacking.
