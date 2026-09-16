@@ -8,7 +8,7 @@ public class Deck {
 
     private HashMap<Integer, Card> deck;
 
-    private void fillDeck() {
+    public void fillDeck() {
         this.deck = new HashMap<>();
         int i = 1;
 
@@ -46,6 +46,17 @@ public class Deck {
 
     public Card getCard(int key) {
         return deck.get(key);
+    }
+
+    public int findElementKey(Card t) {
+        int key = -1;
+        for(int i : getKeys()) {
+            if(t == deck.get(i)) {
+                key = i;
+            }
+        }
+
+        return key;
     }
 
 }
