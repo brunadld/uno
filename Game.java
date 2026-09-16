@@ -263,8 +263,8 @@ public final class Game {
             ArrayList<Integer> n = p.getPlayer(player);
             Card card;
 
-            for(int i = 0; i < n.size(); i++) {
-                card = p.selectHand(player).get(n.get(i));
+            for(Integer i : n) {
+                card = p.selectHand(player).get(i);
 
                 if(!card.getValue().equals("choose color") && !card.getValue().equals("draw four")) {
                     colors.add(card.getColor());
