@@ -253,6 +253,38 @@ public final class Game {
             default -> c = null;
         }
 
+        
+        // ------ MAKING SURE THE BOT SELECT ONLY COLORS IT HAS ON HAND ------ //
+
+        if(currentPlayer != p.getHands().get(activePlayer-1)) {
+
+            ArrayList<String> colors = new ArrayList<>();
+            int player = p.getHands().indexOf(currentPlayer);
+            ArrayList<Integer> n = p.getPlayer(player);
+            Card card;
+
+            for(int i = 0; i < p.getPlayer(player).size(); i++) {
+                card = p.selectHand(player).get(n.get(i));
+
+                if(!card.getValue().equals("choose color") && !card.getValue().equals("draw four")) {
+                    colors.add(card.getColor());
+                }
+            }
+
+            while(!colors.contains(c)) {
+                opt = r.nextInt(1,4);
+
+                switch(opt) {
+                    case 1 -> c = "red";
+                    case 2 -> c = "blue";
+                    case 3 -> c = "yellow";
+                    case 4 -> c = "green";
+                    default -> c = null;
+                }
+            }
+        }
+        
+
         topCard.setColor(c);
     }
 
