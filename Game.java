@@ -254,7 +254,7 @@ public final class Game {
         }
 
         
-        // ------ MAKING SURE THE BOT SELECT ONLY COLORS IT HAS ON HAND ------ //
+        // ------ MAKING SURE THE BOT SELECTS ONLY COLORS IT HAS ON HAND ------ //
 
         if(currentPlayer != p.getHands().get(activePlayer-1)) {
 
@@ -263,7 +263,7 @@ public final class Game {
             ArrayList<Integer> n = p.getPlayer(player);
             Card card;
 
-            for(int i = 0; i < p.getPlayer(player).size(); i++) {
+            for(int i = 0; i < n.size(); i++) {
                 card = p.selectHand(player).get(n.get(i));
 
                 if(!card.getValue().equals("choose color") && !card.getValue().equals("draw four")) {
