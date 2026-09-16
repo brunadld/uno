@@ -101,6 +101,21 @@ public class Players {
         return d.getCard(cardId);
     }
 
+    public void refreshDeck(Card t) {
+        if(deckKeys.isEmpty()) {
+            d.getKeys();
+            ArrayList<Integer> tempKeys;
+
+            for(Player p : hands) {
+                tempKeys = p.getPlayerKeys();
+                updateDeckKeys(tempKeys);
+            }
+
+            int topCard = d.findElementKey(t);
+            deckKeys.remove((Integer) topCard);
+        }
+    }
+
 
     // ------ GETTERS ------ //
 
